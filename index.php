@@ -2,6 +2,59 @@
 $is_auth = rand(0, 1);
 
 $user_name = 'Рональд Курочкин'; // укажите здесь ваше имя
+
+// ассоциативный массив категорий 
+$product_categories = array(
+  "boards"=>"Доски и лыжи",
+  "attachment"=>"Крепления",
+  "boots"=>"Ботинки",
+  "clothing"=>"Одежда",
+  "tools"=>"Инструменты",
+  "other"=>"Разное",
+);
+
+// двумерный массив объявлений 
+$product_items = [
+  [
+    "title" => "2014 Rossignol District Snowboard",
+    "category" => $product_categories["boards"],
+    "price" => 10999,
+    "photo" => "./img/lot-1.jpg",
+  ],
+  [
+    "title" => "DC Ply Mens 2016/2017 Snowboard",
+    "category" => $product_categories["boards"],
+    "price" => 159999,
+    "photo" => "./img/lot-2.jpg",
+  ],
+  [
+    "title" => "Крепления Union Contact Pro 2015 года размер L/XL",
+    "category" => $product_categories["bindings"],
+    "price" => 8000,
+    "photo" => "./img/lot-3.jpg",
+  ],
+  [
+    "title" => "Ботинки для сноуборда DC Mutiny Charocal",
+    "category" => $product_categories["boots"],
+    "price" => 10999,
+    "photo" => "./img/lot-4.jpg",
+  ],
+  [
+    "title" => "Куртка для сноуборда DC Mutiny Charocal",
+    "category" => $product_categories["clothing"],
+    "price" => 7500,
+    "photo" => "./img/lot-5.jpg",
+  ],
+  [
+    "title" => "Маска Oakley Canopy",
+    "category" => $product_categories["miscellaneous"],
+    "price" => 7500,
+    "photo" => "./img/lot-6.jpg",
+  ],
+  
+];
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -58,9 +111,12 @@ $user_name = 'Рональд Курочкин'; // укажите здесь в�
           снаряжение.</p>
         <ul class="promo__list">
           <!--заполните этот список из массива категорий-->
-          <li class="promo__item promo__item--boards">
-            <a class="promo__link" href="pages/all-lots.html">Имя категории</a>
+          <?php foreach ($product_categories as $modifer => $item): ?>
+          <li class="promo__item promo__item--<?php echo $modifer; ?>">
+            <a class="promo__link" href="pages/all-lots.html"><?php echo $item; ?></a>
           </li>
+          <?php endforeach; ?>
+
         </ul>
       </section>
       <section class="lots">
@@ -96,9 +152,11 @@ $user_name = 'Рональд Курочкин'; // укажите здесь в�
     <nav class="nav">
       <ul class="nav__list container">
         <!--заполните этот список из массива категорий-->
-        <li class="nav__item">
-          <a href="pages/all-lots.html">Название категории</a>
+        <?php foreach ($product_categories as $modifer => $item): ?>
+        <li class="nav__item nav__item--<?php echo $modifer; ?>">
+          <a href="pages/all-lots.html"><?php echo $item; ?></a>
         </li>
+        <?php endforeach; ?>
       </ul>
     </nav>
     <div class="main-footer__bottom container">

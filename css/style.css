@@ -489,6 +489,7 @@ main.container {
   font-weight: 700;
   box-sizing: border-box;
   background-repeat: no-repeat;
+  transition: all 0.3s;
 }
 
 .promo__item--boards .promo__link {
