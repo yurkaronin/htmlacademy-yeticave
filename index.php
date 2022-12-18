@@ -54,6 +54,13 @@ $product_items = [
   
 ];
 
+function price_formatting($price) {
+  $price = ceil($price);
+  // Форматирует число со сгруппированными тысячами и, возможно, десятичными цифрами. 
+  $price = number_format($price, 0, '', ' ');
+  return "$price ₽";
+};
+
 
 ?>
 <!DOCTYPE html>
@@ -67,8 +74,9 @@ $product_items = [
 </head>
 
 <body>
-  <div class="page-wrapper">
 
+  <div class="page-wrapper">
+  
     <header class="main-header">
       <div class="main-header__container container">
         <h1 class="visually-hidden">YetiCave</h1>
@@ -136,7 +144,8 @@ $product_items = [
               <div class="lot__state">
                 <div class="lot__rate">
                   <span class="lot__amount">Стартовая цена</span>
-                  <span class="lot__cost"><?php echo $item["price"]; ?><b class="rub">₽</b></span>
+                  <span class="lot__cost"><?php echo price_formatting($item["price"]); ?></span>
+                  
                 </div>
                 <div class="lot__timer timer">
                   12:23
