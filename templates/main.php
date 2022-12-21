@@ -32,8 +32,12 @@
             <span class="lot__cost"><?php echo price_formatting($item["price"]); ?></span>
 
           </div>
-          <div class="lot__timer timer">
-            12:23
+          <?php $res = get_dt_range($item["expiration_date"]); ?>
+          <!-- условие подстановки css-модификатора в тег  -->
+          <!-- Если оставшееся время меньше одного часа, то этому блоку также надо добавить класс  -->
+          <div class="lot__timer timer <?php if(intval($res[0]) < 1): ?>timer--finishing<?php endif; ?>">
+            
+            <?php echo "$res[0]: $res[1]"; ?>
           </div>
         </div>
       </div>
