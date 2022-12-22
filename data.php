@@ -1,7 +1,5 @@
 <?php
 
-// const SERVER_TIMEZONE_SET = 'Europe/Moscow';
-
   // ассоциативный массив категорий 
 $product_categories = array(
   "boards"=>"Доски и лыжи",
