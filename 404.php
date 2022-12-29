@@ -36,16 +36,15 @@ else {
 
 // сохраняем в переменную результат работы функции 
 // которая (Подключает шаблон, передает туда данные и возвращает итоговый HTML контент)
-$page_content = include_template('main.php', [
-    'product_categories' => $product_categories,
-    'product_items' => $product_items,
+$page_content = include_template('404.php', [
+
 ]);
 
 
 $layout_content = include_template('layout.php', [
     'content' => $page_content,
     'product_categories' => $product_categories,
-  'title' => 'Главная',
+  'title' => '404 ошибка',
 
 ]);
 
